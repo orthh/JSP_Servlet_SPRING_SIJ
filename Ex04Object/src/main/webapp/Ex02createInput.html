@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+	display: flex;
+	justify-content: center;
+}
+	form{
+		width: 350px;
+	}
+	
+	fieldset{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items : center;
+	
+	}
+	legend{
+		text-align: center;
+	}
+	input:last-child{
+		margin-top: 5px;
+	}
+</style>
+</head>
+<body>
+	<form action="Ex02createInput.jsp">
+		<fieldset>
+			<legend>랜덤뽑기</legend>
+			<input type="number" name="num"/>
+			<input type="submit" value="생성하기" />
+		</fieldset>
+	</form>
+	
+</body>
+</html>
