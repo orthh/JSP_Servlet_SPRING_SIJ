@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.FullStack"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,7 +15,7 @@
 <!-- 세션안에 저장되어있는 학생정보(3명) 테이블 출력 -->
 	
 <%
-	ArrayList<FullStack>  fs = (ArrayList<FullStack>)session.getAttribute("studentlist");
+	List<FullStack>  fs = (List<FullStack>)session.getAttribute("studentlist");
 %>
 
 <table border="1px">
@@ -23,6 +24,7 @@
 		<th>전공</th>
 		<th>번호</th>
 	</tr>
+	<!-- 방법1 -->
 	<%
 		for(int i=0; i<fs.size(); i++){
 			out.print("<tr>");		
@@ -33,6 +35,14 @@
 		}
 
 	%>
+	<!-- 방법2 -->
+	<%for(FullStack item: fs) {%>
+	<tr>
+		<td><%=item.getName() %></td>
+		<td><%=item.getMajor() %></td>
+		<td><%=item.getPhone() %></td>
+	</tr>
+	<%} %>
 </table>
 
 </body>

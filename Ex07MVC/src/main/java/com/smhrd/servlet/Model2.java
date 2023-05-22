@@ -84,7 +84,7 @@ public class Model2 extends HttpServlet {
 
 		}
 
-		// 3. 3명의 학생정보 -> 세션
+		// 3. 3명의 학생정보(List) -> 세션
 		HttpSession session = request.getSession();
 		session.setAttribute("studentlist", fsl);
 		//  -> Ex02model2.jsp 로 이동

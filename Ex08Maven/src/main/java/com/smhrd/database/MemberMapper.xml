@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : mapper - dao 매칭 -->
+<mapper namespace="MyMemberDAO">
+	<!-- id : 태그 식별값 -->
+	<!-- String,int등은 그냥 쓰면 됨. -->
+	<!-- 사용자 정의 데이터타입은 경로까지 다 써줘야함. -->
+	<insert id="insert" parameterType="com.smhrd.model.MyMember">
+		INSERT INTO mymember VALUES (
+		    #{id},
+		    #{pw},
+		    #{nick}
+		)
+	</insert>
+
+
+</mapper>
