@@ -5,6 +5,10 @@ public class MyMember {
 	private String pw;
 	private String nick;
 	
+	public MyMember(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
+	}
 	public MyMember(String id, String pw, String nick) {
 		this.id = id;
 		this.pw = pw;

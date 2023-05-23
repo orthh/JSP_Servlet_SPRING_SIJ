@@ -12,6 +12,10 @@
 		    #{nick}
 		)
 	</insert>
-
+	<select id="login" parameterType="com.smhrd.model.MyMember" resultType="com.smhrd.model.MyMember">
+		SELECT id, nick
+		  FROM mymember
+		 WHERE ID = #{id} AND PW = #{pw}
+	</select>
 
 </mapper>

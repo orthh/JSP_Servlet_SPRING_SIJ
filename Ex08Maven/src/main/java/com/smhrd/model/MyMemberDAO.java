@@ -17,7 +17,7 @@ public class MyMemberDAO {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		int cnt = 0;
 		try {
-			// insert(실제 실행 할 sql-namespace(xml),sql 실행할 때 넘겨줄 값())
+			// insert(실제 실행 할 sql-namespace(xml),sql 실행할 때 넘겨줄 값(?))
 			// 반환값 : sql 실행 성공(삽입 성공->1 / 실패->0)
 			cnt = sqlSession.insert("MyMemberDAO.insert",member);
 		}catch(Exception e) {
@@ -26,6 +26,22 @@ public class MyMemberDAO {
 			sqlSession.close(); // 자원 반환
 		}
 		return cnt;
+	}
+	
+	// 로그인
+	public MyMember login(MyMember member) {
+		MyMember member2 = null;
+		// 세션 생성
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		try {
+			member2 = sqlSession.selectOne("MyMemberDAO.login",member);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
+		return member2;
+		
 	}
 	
 }
