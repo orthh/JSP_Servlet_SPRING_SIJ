@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : mapper - dao 매칭 -->
+<mapper namespace="WebMemberDAO">
+	<!-- id : 태그 식별값 -->
+	<!-- String,int등은 그냥 쓰면 됨. -->
+	<!-- 사용자 정의 데이터타입은 경로까지 다 써줘야함. -->
+	<insert id="insert" parameterType="com.smhrd.model.WebMember">
+		INSERT INTO webmember VALUES (
+		    #{email},
+		    #{pw},
+		    #{tel},
+		    #{address}
+		)
+	</insert>
+	<select id="login" parameterType="com.smhrd.model.WebMember" resultType="com.smhrd.model.WebMember">
+		SELECT *
+		  FROM webmember
+		 WHERE EMAIL = #{email} AND PW = #{pw}
+	</select>
+	<update id="update" parameterType="com.smhrd.model.WebMember">      
+		UPDATE WebMember
+		   SET PW      = #{pw},
+		       TEL     = #{tel},
+		       ADDRESS = #{address}
+		 WHERE EMAIL = #{email}
+	</update>
+	<!-- 2개이상의 행을 가져올 경우 -> list 로 자동으로 반환  -->
+	<select id="select" resultType="com.smhrd.model.WebMember">
+		SELECT *
+		  FROM webmember
+	</select>
+	<!-- 값이 하나이고,  -->
+	<!-- 자바 기본제공타입은 parameterType 명시 안해도됨. parameterType="String" 해줘도됨 -->
+	<!-- 값이 하나므로 그냥 아무 매개변수 넣어도 들어감 -->
+	<delete id="delete" parameterType="String">
+		DELETE FROM webmember
+		 WHERE email = #{email}
+	</delete>
+</mapper>
